@@ -1,6 +1,10 @@
 class ToppagesController < ApplicationController
   #HTTPリクエスト toppages/indexを受け取りアクション
   def index
+    if logged_in?
+      @micropost = current_user.microposts.build #form_for 用
+      @microposts = current_user.microposts.order('created_at DESC').page(params[:page]) #一覧表示用
+    end
   end
   #最後にはデフォルトで
   #render:自身のアクション名 が呼び出される
