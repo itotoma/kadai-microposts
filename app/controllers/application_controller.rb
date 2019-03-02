@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     
     include SessionsHelper
     #logged_inはsession_helperのメソッド
+    #Userインスタンスをここで呼び出している
     
     private
     
@@ -17,5 +18,7 @@ class ApplicationController < ActionController::Base
         @count_microposts = user.microposts.count
         @count_followings = user.followings.count
         @count_followers = user.followers.count
+        @count_favorites = user.liked_microposts.count
     end
+    
 end

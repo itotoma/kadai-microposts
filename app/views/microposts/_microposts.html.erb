@@ -15,10 +15,11 @@
                 <div>
                     <p><%= micropost.content %></p>
                 </div>
-                <div>
+                <div class = "row">
+                    <%= render "favorites/like_button", target_post: micropost %>
                     <% if current_user == micropost.user %>
-                        <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
-                         <!-- metod: :delete でこのコントローラーのHTTPメソッドdeleteを呼び出している。-->
+                        <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs col-xs-2' %>
+                             <!-- metod: :delete でこのコントローラーのHTTPメソッドdeleteを呼び出している。-->
                     <% end %>
                 </div>
             </div>
